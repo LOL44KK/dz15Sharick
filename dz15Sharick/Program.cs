@@ -1,4 +1,6 @@
-﻿namespace dz15Sharick
+﻿using System.Reflection;
+
+namespace dz15Sharick
 {
     internal class Program
     {
@@ -47,6 +49,9 @@
                 if (fed.All(char.IsDigit))
                 {
                     scenes.GetInvocationList()[int.Parse(fed)].DynamicInvoke();
+
+                    //MethodInfo method = scenes.GetInvocationList()[int.Parse(fed)].Method;
+                    //method.Invoke(this, []);
                 }
             }
         }
