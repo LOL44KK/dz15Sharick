@@ -13,16 +13,15 @@
     {
         private delegate void Scene();
         
-        private List<Scene> scenes;
+        private Scene scenes;
 
         public Game()
         {
-            scenes = new List<Scene>();
-            scenes.Add(Exit);
-            scenes.Add(NewGame);
-            scenes.Add(LoadGame);
-            scenes.Add(Rules);
-            scenes.Add(Author);
+            scenes += Exit;
+            scenes += NewGame;
+            scenes += LoadGame;
+            scenes += Rules;
+            scenes += Author;
         }
 
         public void Start()
@@ -47,7 +46,7 @@
 
                 if (fed.All(char.IsDigit))
                 {
-                    scenes[int.Parse(fed)]();
+                    scenes.GetInvocationList()[int.Parse(fed)].DynamicInvoke();
                 }
             }
         }
